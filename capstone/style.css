@@ -1,0 +1,108 @@
+:root{
+  --bg:#fbfbff;
+  --card:#ffffff;
+  --text:#0f1724;
+  --muted:#5b6771;
+  --primary:#2563eb; /* accessible */
+  --primary-dark:#1e4fc8;
+  --radius:14px;
+  --gap:1rem;
+  --ff: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --max-width:1200px;
+  --shadow: 0 8px 24px rgba(15,23,36,0.08);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--ff);
+  color:var(--text);
+  background:linear-gradient(180deg,#f7f9ff 0%,var(--bg) 100%);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.45;
+  font-size:16px;
+}
+
+/* layout container */
+.container{max-width:var(--max-width);margin:0 auto;padding:1rem}
+
+/* header */
+.site-header{background:transparent;position:sticky;top:0;z-index:40}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.5rem}
+.main-nav ul{display:flex;gap:1rem;list-style:none;padding:0;margin:0}
+.main-nav a{color:var(--muted);text-decoration:none;font-weight:600}
+.actions{display:flex;align-items:center;gap:0.5rem}
+.btn{border:0;padding:.55rem .9rem;border-radius:10px;font-weight:600;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease}
+.btn:hover{transform:translateY(-3px)}
+.btn.ghost{background:transparent;color:var(--primary);border:1px solid rgba(37,99,235,.12)}
+.btn.primary{background:linear-gradient(180deg,var(--primary),var(--primary-dark));color:#fff;box-shadow:0 6px 18px rgba(37,99,235,.18)}
+.btn.small{padding:.4rem .6rem;font-size:.95rem;border-radius:8px}
+
+/* nav toggle */
+.nav-toggle{display:none;background:transparent;border:0;font-size:1.2rem}
+
+/* hero */
+.hero{padding:3rem 0}
+.hero-grid{display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:center}
+.hero-content h1{font-size:2rem;margin:0 0 .5rem}
+.hero-content p{color:var(--muted);margin:0 0 1rem}
+.hero-image img{width:100%;height:auto;border-radius:16px;box-shadow:var(--shadow)}
+
+/* sections */
+.section{padding:2rem 0}
+h2{margin-bottom:1rem}
+
+/* filters */
+.filters{display:flex;gap:.5rem;margin-bottom:1rem}
+.filter{border:0;padding:.45rem .7rem;border-radius:999px;background:transparent;color:var(--muted);cursor:pointer}
+.filter.active{background:rgba(37,99,235,.08);color:var(--primary)}
+
+/* cards grid */
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(15,23,36,0.12)}
+.card-img{width:100%;height:160px;object-fit:cover;display:block}
+.card-body{padding:1rem}
+.card-title{margin:.2rem 0 .4rem;font-size:1.05rem}
+.muted{color:var(--muted);font-size:.95rem}
+
+/* card footer */
+.card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:0.75rem}
+.price{font-weight:700;color:var(--primary)}
+
+/* testimonials */
+.testimonials-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+blockquote{background:linear-gradient(180deg,#fff,#fbfdff);padding:1rem;border-radius:10px;box-shadow:var(--shadow);margin:0}
+
+/* form */
+.contact-form{display:grid;gap:.6rem;max-width:560px}
+.contact-form input,.contact-form textarea{padding:.6rem;border-radius:8px;border:1px solid #e6eef8;font-family:var(--ff)}
+.form-row{display:flex;gap:.5rem}
+
+/* footer */
+.site-footer{padding:1.5rem 0;border-top:1px solid #e8eef6;margin-top:2rem}
+.footer-grid{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+
+/* small helpers */
+@media (max-width:1023px){
+  .cards-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-grid{grid-template-columns:1fr}
+}
+@media (max-width:767px){
+  :root{--max-width:740px}
+  .cards-grid{grid-template-columns:1fr}
+  .main-nav{display:none}
+  .nav-toggle{display:inline-block}
+  .hero{padding:2rem 0}
+  .hero-content h1{font-size:1.5rem}
+  .testimonials-grid{grid-template-columns:1fr}
+}
+@media (max-width:479px){
+  :root{--max-width:420px}
+  body{font-size:15px}
+  .header-inner{padding:.6rem}
+  .hero-image{display:none}
+  .hero-content h1{font-size:1.25rem}
+  .btn{padding:.5rem .7rem}
+}
