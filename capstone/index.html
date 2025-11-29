@@ -1,76 +1,175 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Simple Quiz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLearn – Courses</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: Arial;
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 20px;
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #f6f7fb;
         }
-        #quiz-container {
-            margin-top: 20px;
+
+        header {
+            background: linear-gradient(135deg, #4e73df, #1cc88a);
+            padding: 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        nav ul li a:hover {
+            opacity: 0.7;
+        }
+
+        .hero {
+            margin: 25px auto;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero img {
+            width: 100%;
+            height: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 40px 0 10px 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .courses {
+            width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #2d2f36;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 40px;
+        }
+
+        /* Responsive breakpoints */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 22px;
+            }
+            nav ul {
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                flex-direction: column;
+                gap: 5px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Random Image Related to Quiz Topic -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Earth_and_Moon.jpg/640px-Earth_and_Moon.jpg" 
-         alt="General Knowledge" width="100%" style="border-radius:10px;">
+    <header>
+        <h1>EduLearn Courses</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <h1>Simple Quiz</h1>
-
-    <div id="quiz-container">
-        <p id="question"></p>
-        <input type="text" id="answerInput" placeholder="Type your answer">
-        <button onclick="checkAnswer()">Submit</button>
-
-        <p id="result"></p>
+    <!-- Hero Image -->
+    <div class="hero">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=60" alt="Education Banner">
     </div>
 
-    <script>
-        // 1. Quiz Questions Array
-        const quizQuestions = [
-            { question: "What is the capital of India?", answer: "delhi" },
-            { question: "What is 5 + 7?", answer: "12" },
-            { question: "Which planet is known as the Red Planet?", answer: "mars" },
-            { question: "What is the chemical symbol for water?", answer: "h2o" },
-            { question: "Who is known as the father of computers?", answer: "charles babbage" }
-        ];
+    <h2 class="section-title">Available Courses</h2>
 
-        let currentQuestionIndex = 0;
+    <div class="courses">
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=60">
+            <h3>Web Development</h3>
+            <p>Learn HTML, CSS, JavaScript and build responsive websites.</p>
+        </div>
 
-        function loadQuestion() {
-            document.getElementById("question").textContent =
-                quizQuestions[currentQuestionIndex].question;
-        }
+        <!-- Card 2 -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981d?auto=format&fit=crop&w=800&q=60">
+            <h3>Data Science</h3>
+            <p>Python, Machine Learning, Visualization & more.</p>
+        </div>
 
-        function checkAnswer() {
-            const userAnswer = document.getElementById("answerInput").value.toLowerCase();
-            const correctAnswer = quizQuestions[currentQuestionIndex].answer;
+        <!-- Card 3 -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=60">
+            <h3>Graphic Design</h3>
+            <p>Master Photoshop, Illustrator & creative design skills.</p>
+        </div>
 
-            if (userAnswer === correctAnswer) {
-                document.getElementById("result").textContent = "Correct!";
-            } else {
-                document.getElementById("result").textContent = "Wrong! Correct answer: " + correctAnswer;
-            }
+        <!-- Card 4 -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=60">
+            <h3>AI Fundamentals</h3>
+            <p>Understand neural networks, NLP, CV & more.</p>
+        </div>
+    </div>
 
-            currentQuestionIndex++;
-
-            if (currentQuestionIndex < quizQuestions.length) {
-                document.getElementById("answerInput").value = "";
-                loadQuestion();
-            } else {
-                document.getElementById("question").textContent = "Quiz Finished!";
-                document.getElementById("answerInput").style.display = "none";
-            }
-        }
-
-        // Load first question
-        loadQuestion();
-    </script>
+    <footer>
+        <p>© 2025 EduLearn. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
